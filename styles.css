@@ -1,0 +1,510 @@
+/* Wedding Coffee Bar - Modern Styles */
+:root {
+    --primary: #0f172a;
+    --secondary: #1e293b;
+    --accent: #3b82f6;
+    --light-bg: #ffffff;
+    --cream: #f8fafc;
+    --dark: #020617;
+    --text: #374151;
+    --modern-purple: #8b5cf6;
+    --modern-orange: #fb7185;
+    --modern-teal: #06b6d4;
+    --modern-green: #10b981;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+    --border-radius: 24px;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Modern Banner */
+.top-banner {
+    background: linear-gradient(135deg, var(--modern-purple) 0%, var(--modern-orange) 50%, var(--modern-teal) 100%);
+    position: relative;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(20px);
+    animation: slideDown 0.5s ease-out;
+}
+
+.top-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Floating Hearts Animation */
+@keyframes floatingHearts {
+    0% { 
+        transform: translateY(100vh) scale(0); 
+        opacity: 0; 
+    }
+    10% { 
+        opacity: 1; 
+    }
+    90% { 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translateY(-100px) scale(1); 
+        opacity: 0; 
+    }
+}
+
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+    content: '💖';
+    position: absolute;
+    font-size: 20px;
+    animation: floatingHearts 8s infinite linear;
+    animation-delay: 0s, 4s;
+}
+
+.floating-hearts::before {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-hearts::after {
+    left: 80%;
+    animation-delay: 4s;
+    content: '💕';
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--light-bg);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    contain: layout;
+}
+
+/* Hero Section - Wedding Focus */
+.hero-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    contain: layout style;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 24%, rgba(139, 92, 246, 0.03) 25%, rgba(139, 92, 246, 0.03) 26%, transparent 27%, transparent 74%, rgba(59, 130, 246, 0.03) 75%, rgba(59, 130, 246, 0.03) 76%, transparent 77%);
+    background-size: 60px 60px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-title {
+    background: linear-gradient(135deg, var(--primary), var(--modern-purple), var(--modern-orange));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    position: relative;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.hero-title::after {
+    content: '💕';
+    position: absolute;
+    top: -20px;
+    right: -30px;
+    font-size: 2rem;
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Modern CTA Buttons */
+.modern-cta-button {
+    background: linear-gradient(135deg, var(--modern-purple), var(--modern-orange));
+    color: white;
+    padding: 16px 32px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    font-size: 16px;
+}
+
+.modern-cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.modern-cta-button:hover::before {
+    left: 100%;
+}
+
+.modern-cta-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Feature Cards - Wedding Theme */
+.feature-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--modern-purple), var(--modern-orange), var(--modern-teal));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--modern-purple), var(--modern-orange));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Service Cards - Wedding Focus */
+.service-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--glass-border);
+    position: relative;
+}
+
+.service-card::after {
+    content: '💒';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Testimonial Cards - Wedding Theme */
+.testimonial-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid var(--modern-purple);
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    font-size: 4rem;
+    color: var(--modern-purple);
+    opacity: 0.1;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* FAQ Items - Wedding Style */
+.faq-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.faq-item:hover {
+    border-color: var(--modern-purple);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.faq-question {
+    background: transparent;
+    border: none;
+    padding: 2rem;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.faq-question:hover {
+    background: rgba(139, 92, 246, 0.05);
+}
+
+.faq-answer {
+    padding: 0 2rem 2rem;
+    background: transparent;
+    border-top: 1px solid var(--glass-border);
+}
+
+/* Animations and Reveals */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Wedding-specific decorative elements */
+.wedding-decoration {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.1;
+    animation: float 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Voice Assistant - Removed */
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+    
+    .feature-card, .service-card, .testimonial-card {
+        padding: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+/* Loading Screen - Wedding Theme */
+.loading-screen {
+    background: linear-gradient(135deg, var(--light-bg), #f1f5f9);
+    backdrop-filter: blur(20px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.coffee-loader::before {
+    content: '💕☕💖';
+    font-size: 50px;
+    animation: heartPulse 2s infinite;
+}
+
+@keyframes heartPulse {
+    0%, 100% { 
+        transform: scale(1); 
+        filter: hue-rotate(0deg);
+    }
+    50% { 
+        transform: scale(1.1); 
+        filter: hue-rotate(20deg);
+    }
+}
+
+/* Coffee Bean Decorations - Wedding Hearts */
+.coffee-bean {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatingHearts 8s infinite linear;
+}
+
+.coffee-bean::before {
+    content: '💖';
+    position: absolute;
+    font-size: 20px;
+}
+
+/* Enhanced Mobile Menu - Wedding Theme */
+.mobile-menu {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-top: 2px solid var(--modern-purple);
+}
+
+.modern-mobile-nav:hover {
+    background: rgba(139, 92, 246, 0.05) !important;
+    border-color: var(--modern-purple) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Footer - Wedding Theme */
+footer {
+    background: linear-gradient(135deg, var(--dark), var(--primary)) !important;
+}
+
+/* Additional Wedding Touches */
+.section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--modern-purple), var(--modern-orange), var(--modern-teal), transparent);
+    margin: 4rem 0;
+    border-radius: 1px;
+}
+
+.wedding-sparkle {
+    display: inline-block;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+}
