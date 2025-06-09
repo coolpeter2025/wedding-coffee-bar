@@ -1,26 +1,26 @@
 /* Wedding Coffee Bar - Modern Styles */
 :root {
-    --primary: #0f172a;
-    --secondary: #1e293b;
-    --accent: #3b82f6;
-    --light-bg: #ffffff;
-    --cream: #f8fafc;
-    --dark: #020617;
-    --text: #374151;
-    --modern-purple: #8b5cf6;
-    --modern-orange: #fb7185;
-    --modern-teal: #06b6d4;
-    --modern-green: #10b981;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+    --primary: #8b4513;
+    --secondary: #d4a574;
+    --accent: #f4e4c1;
+    --light-bg: #fdfbf7;
+    --cream: #f9f5f0;
+    --dark: #3c2414;
+    --text: #5d4e37;
+    --modern-blush: #f7c6c7;
+    --modern-sage: #9caf88;
+    --modern-gold: #d4a574;
+    --modern-rose: #e8b4b8;
+    --shadow: 0 4px 20px rgba(139, 69, 19, 0.12);
+    --shadow-hover: 0 12px 40px rgba(139, 69, 19, 0.20);
     --border-radius: 24px;
-    --glass-bg: rgba(255, 255, 255, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-bg: rgba(253, 251, 247, 0.85);
+    --glass-border: rgba(212, 165, 116, 0.2);
 }
 
 /* Modern Banner */
 .top-banner {
-    background: linear-gradient(135deg, var(--modern-purple) 0%, var(--modern-orange) 50%, var(--modern-teal) 100%);
+    background: linear-gradient(135deg, var(--modern-blush) 0%, var(--modern-gold) 50%, var(--modern-sage) 100%);
     position: relative;
     z-index: 1000;
     box-shadow: var(--shadow);
@@ -159,7 +159,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title {
-    background: linear-gradient(135deg, var(--primary), var(--modern-purple), var(--modern-orange));
+    background: linear-gradient(135deg, var(--primary), var(--modern-blush), var(--modern-gold));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -185,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Modern CTA Buttons */
 .modern-cta-button {
-    background: linear-gradient(135deg, var(--modern-purple), var(--modern-orange));
+    background: linear-gradient(135deg, var(--modern-blush), var(--modern-gold));
     color: white;
     padding: 16px 32px;
     border-radius: var(--border-radius);
@@ -245,7 +245,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--modern-purple), var(--modern-orange), var(--modern-teal));
+    background: linear-gradient(90deg, var(--modern-blush), var(--modern-gold), var(--modern-sage));
     transform: scaleX(0);
     transition: transform 0.3s ease;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
@@ -263,7 +263,7 @@ h1, h2, h3, h4, h5, h6 {
 .feature-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--modern-purple), var(--modern-orange));
+    background: linear-gradient(135deg, var(--modern-rose), var(--modern-sage));
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -318,7 +318,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2.5rem;
     box-shadow: var(--shadow);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-left: 4px solid var(--modern-purple);
+    border-left: 4px solid var(--modern-gold);
     position: relative;
 }
 
@@ -328,7 +328,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 15px;
     left: 25px;
     font-size: 4rem;
-    color: var(--modern-purple);
+    color: var(--modern-gold);
     opacity: 0.1;
     font-family: serif;
     font-weight: bold;
@@ -352,7 +352,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq-item:hover {
-    border-color: var(--modern-purple);
+    border-color: var(--modern-gold);
     box-shadow: var(--shadow-hover);
     transform: translateY(-2px);
 }
@@ -477,12 +477,12 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-menu {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
-    border-top: 2px solid var(--modern-purple);
+    border-top: 2px solid var(--modern-gold);
 }
 
 .modern-mobile-nav:hover {
     background: rgba(139, 92, 246, 0.05) !important;
-    border-color: var(--modern-purple) !important;
+    border-color: var(--modern-gold) !important;
     transform: translateY(-2px) !important;
 }
 
@@ -494,7 +494,7 @@ footer {
 /* Additional Wedding Touches */
 .section-divider {
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--modern-purple), var(--modern-orange), var(--modern-teal), transparent);
+    background: linear-gradient(90deg, transparent, var(--modern-blush), var(--modern-gold), var(--modern-sage), transparent);
     margin: 4rem 0;
     border-radius: 1px;
 }
