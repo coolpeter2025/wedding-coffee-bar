@@ -331,23 +331,69 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         createServiceAreaDisplay: function() {
-            // Create dynamic service area showcase
+            // Create dynamic service area showcase with dropdown
             const serviceSection = document.querySelector('#services');
             if (serviceSection) {
                 const serviceAreaDiv = document.createElement('div');
                 serviceAreaDiv.className = 'mt-12 p-8 bg-white/80 backdrop-blur-2xl rounded-3xl border border-white/20 shadow-lg';
                 serviceAreaDiv.innerHTML = `
-                    <h4 class="text-3xl font-extrabold text-center bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-6">
-                        <i class="fas fa-map-marked-alt mr-2"></i>We Serve 35+ Tampa Bay Communities
-                    </h4>
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 text-sm">
-                        ${config.serviceAreas.map(city => `<div class="bg-white/60 backdrop-blur-sm px-4 py-3 rounded-xl text-center hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300 border border-white/30 font-medium text-gray-700">${city}</div>`).join('')}
+                    <div class="text-center">
+                        <h4 class="text-3xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-6">
+                            <i class="fas fa-map-marked-alt mr-2"></i>We Serve 35+ Tampa Bay Communities
+                        </h4>
+                        
+                        <div class="relative inline-block w-full max-w-md mx-auto mb-6">
+                            <button class="service-area-dropdown w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-4 px-6 rounded-2xl font-semibold hover:shadow-2xl transition-all hover:scale-105 focus:outline-none flex items-center justify-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+                                <span>View All Service Areas</span>
+                                <i class="fas fa-chevron-down ml-2 transition-transform duration-300"></i>
+                            </button>
+                            
+                            <div class="service-area-list hidden absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/30 max-h-64 overflow-y-auto z-50">
+                                <div class="p-4">
+                                    <div class="grid grid-cols-1 gap-2">
+                                        ${config.serviceAreas.map(city => `
+                                            <div class="service-area-item px-4 py-2 rounded-xl hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition-all duration-300 cursor-pointer font-medium text-gray-700 border border-transparent hover:border-white/30">
+                                                ${city}
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 font-semibold text-lg">
+                            Professional wedding coffee service throughout the Tampa Bay area!
+                        </p>
                     </div>
-                    <p class="text-center text-gray-600 mt-6 font-semibold text-lg">
-                        Professional wedding coffee service throughout the Tampa Bay area!
-                    </p>
                 `;
+                
                 serviceSection.appendChild(serviceAreaDiv);
+                
+                // Add click outside to close dropdown
+                document.addEventListener('click', function(event) {
+                    const dropdown = serviceAreaDiv.querySelector('.service-area-dropdown');
+                    const dropdownList = serviceAreaDiv.querySelector('.service-area-list');
+                    
+                    if (dropdown && dropdownList && !dropdown.contains(event.target) && !dropdownList.contains(event.target)) {
+                        dropdownList.classList.add('hidden');
+                        dropdown.querySelector('i').style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Add rotation animation to chevron
+                const dropdownButton = serviceAreaDiv.querySelector('.service-area-dropdown');
+                if (dropdownButton) {
+                    dropdownButton.addEventListener('click', function() {
+                        const chevron = this.querySelector('i');
+                        const dropdownList = this.nextElementSibling;
+                        
+                        if (dropdownList.classList.contains('hidden')) {
+                            chevron.style.transform = 'rotate(180deg)';
+                        } else {
+                            chevron.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
             }
         }
     };
